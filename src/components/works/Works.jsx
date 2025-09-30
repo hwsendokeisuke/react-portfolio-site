@@ -7,7 +7,7 @@ export const Works = () => {
   const worksData = [
     {
       to: "/WorkPortforio",
-      imgSrc: "/images/profile-image.png",
+  imgSrc: process.env.PUBLIC_URL + "/images/profile-image.png",
       altText: "ポートフォリオ",
       title: "ポートフォリオ",
       description: "自身の経歴や製作物をまとめたポートフォリオを作成しました。",
@@ -15,7 +15,7 @@ export const Works = () => {
     },
     {
       to: "/WorkKoreaBlog",
-      imgSrc: "/images/profile-image.png",
+  imgSrc: process.env.PUBLIC_URL + "/images/profile-image.png",
       altText: "Django×Azure RAG機能付き韓国ドラマブログ",
       title: "Django×Azure RAG機能付き韓国ドラマブログ",
       description: "Djangoを使ったブログとAzure Open AIを活用したChatBotを作成しました。",

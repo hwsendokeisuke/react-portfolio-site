@@ -15,23 +15,23 @@ export const AboutMe = () => {
     {
       title: '出身地: 宮城県 仙台市',
       imgSrc: [
-        '/images/profile-image.png',
-        '/images/background.png',
-        '/images/background.png',
+        process.env.PUBLIC_URL + '/images/profile-image.png',
+        process.env.PUBLIC_URL + '/images/background.png',
+        process.env.PUBLIC_URL + '/images/background.png',
       ],
       description: '仙台は美しい街で、歴史的な名所や自然が豊かです。',
     },
     {
       title: '趣味: 韓国ドラマ鑑賞',
-      imgSrc: [ '/images/background.png'],
+  imgSrc: [ process.env.PUBLIC_URL + '/images/background.png'],
       description: '特にロマンティックコメディが好きです。',
     },
     {
       title: '特技: ダンス',
       imgSrc: [
-        '/images/profile-image.png',
-        '/images/profile-image.png',
-        '/images/profile-image.png',
+        process.env.PUBLIC_URL + '/images/profile-image.png',
+        process.env.PUBLIC_URL + '/images/profile-image.png',
+        process.env.PUBLIC_URL + '/images/profile-image.png',
       ],
       description: '様々なジャンルのダンスを楽しんでいます。',
     },
@@ -49,7 +49,7 @@ export const AboutMe = () => {
         <div className="center">
           <h1 className="title-text">About Me</h1>
           <div className="profile">
-            <img src="/images/profile-image.png" alt="Profile" className="profile-image" />
+            <img src={process.env.PUBLIC_URL + "/images/profile-image.png"} alt="Profile" className="profile-image" />
             <div className="profile-info">
               <p>名前:遠藤 圭輔 </p>
               <p>年齢:27歳 </p>

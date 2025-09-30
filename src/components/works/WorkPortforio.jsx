@@ -15,7 +15,7 @@ export const WorkPortforio = () => {
             <div className="center">
               <h1 className="title-text">Works</h1>
               <p>ポートフォリオ</p>
-              <img src="/images/profile-image.png" alt="Profile" className="profile-image" />
+              <img src={process.env.PUBLIC_URL + "/images/profile-image.png"} alt="Profile" className="profile-image" />
               <p>概要</p>
               <p></p>
               <p>使用ツール、言語など</p>
