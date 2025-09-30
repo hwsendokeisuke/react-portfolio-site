@@ -9,7 +9,7 @@ import InfoIcon from '@mui/icons-material/Info';
 
 export const AboutMe = () => {
   const { open, content, handleOpen, handleClose } = useModal();
-  const [selectedProfile, setSelectedProfile] = useState(null); 
+  const [setSelectedProfile] = useState(null);
 
   const profileData = [
     {
