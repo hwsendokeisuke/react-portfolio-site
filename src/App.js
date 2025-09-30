@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Ribbon } from './components/Ribbon';
+import { Top } from './components/Top';
+import { AboutThisSite } from './components/AboutThisSite';
+import { AboutMe } from './components/AboutMe/AboutMe';
+import Works from './components/works/Works';
+import Skills from './components/Skills/Skills';
+import ContactMe from './components/ContactMe';
+import WorkPortforio from './components/works/WorkPortforio'; // WorkPortforioコンポーネントをインポート
+import WorkKoreaBlog from './components/works/WorkKoreaBlog'; // WorkKoreaBlogコンポーネントをインポート
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Ribbon />
+            <Top />
+            <AboutThisSite />
+            <AboutMe />
+            <Works />
+            <Skills />
+            <ContactMe />
+          </>
+        } />
+        <Route path="/WorkPortforio" element={<WorkPortforio />} /> {/* WorkPortforioコンポーネントを表示 */}
+        {/* 他の詳細画面用のルートも追加可能 */}
+        <Route path="/WorkKoreaBlog" element={<WorkKoreaBlog />} /> {/* WorkKoreaBlogコンポーネントを表示 */}
+        {/* 他の詳細画面用のルートも追加可能 */}
+      </Routes>
+    </Router>
   );
 }
 

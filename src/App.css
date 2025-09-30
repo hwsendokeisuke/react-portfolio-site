@@ -1,38 +1,316 @@
-.App {
-  text-align: center;
+html {
+  scroll-behavior: smooth; /* スムーズスクロールを有効にする */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  background-image: url('./../public/images/background.png'); /* 画像のパスを指定 */
+  background-size: cover; /* 画像をリボンのサイズに合わせて拡大縮小 */
+  width: 100%; /* 幅を100%に設定 */
+  height: 100vh; /* 高さをビューポートの高さに設定 */
+  position: relative; /* 相対位置を設定 */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.overlay-main {
+    position: absolute; /* 絶対位置を設定 */
+    top: 0; /* 上部に配置 */
+    left: 0; /* 左側に配置 */
+    right: 0; /* 右側に配置 */
+    bottom: 0; /* 下部に配置 */
+    background-color: rgba(240, 233, 218, 0.8); /* 肌色の半透明オーバーレイ */
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+.arch-container {
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center; /* 垂直方向の中央揃え */
+}
+
+.arch-image {
+  width: auto; /* 幅は自動 */
+  height: 400px;
+  object-fit: cover; /* 画像をコンテナに合わせる */
+  border-radius: 50% 50% 0 0; /* 上部をアーチ形にするためのボーダー半径 */
+}
+
+.title-text {
+  font-size: 60px;
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center; /* 垂直方向の中央揃え */
+}
+
+.name-text{
+  font-size: 40px;
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center; /* 垂直方向の中央揃え */
+}
+
+.ribbon {
+  background-image: url('./../public/images/background.png'); /* 画像のパスを指定 */
+  background-size: cover; /* 画像をリボンのサイズに合わせて拡大縮小 */
+  padding: 30px 0; /* 上下のパディング */
+  position: fixed; /* 固定配置 */
+  top: 0; /* 上部に配置 */
+  width: 100%; /* 幅を100%に設定 */
+  z-index: 1000; /* 他の要素の上に表示 */
+  color: black; /* テキストの色を白に設定 */
+}
+
+.overlay-ribbon {
+  content: ""; /* 擬似要素の内容を空に設定 */
+  position: absolute; /* 絶対位置を設定 */
+  top: 0; /* 上部に配置 */
+  left: 0; /* 左側に配置 */
+  right: 0; /* 右側に配置 */
+  bottom: 0; /* 下部に配置 */
+  background-color: rgba(240, 233, 218, 0.8); /* 肌色の半透明オーバーレイ（RGBA形式） */
+  z-index: 1; /* リボンのテキストの下に表示 */
+}
+
+.ribbon-menu {
+  list-style-type: none; /* リストのスタイルを削除 */
+  display: flex; /* 横並びにする */
+  justify-content: right; /* 中央揃え */
+  margin: 18px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.ribbon-item {
+  margin: 0 15px; /* アイテム間のスペース */
+  position: relative; /* プルダウンリストのために相対位置を設定 */
+}
+
+.ribbon-item:first-child {
+  margin-right: auto; /* アイコンのリストアイテムを左端に配置 */
+}
+
+.ribbon-item a {
+  color: black; /* テキストの色 */
+  text-decoration: none; /* 下線を削除 */
+  font-weight: bold; /* 太字 */
+}
+
+.ribbon-item a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* プルダウンリストのスタイル */
+.dropdown {
+  position: absolute; /* 絶対位置を使用 */
+  top: 100%; /* リボンの下に配置 */
+  left: 0; /* 左揃え */
+  background-color: white; /* プルダウンの背景色 */
+  list-style-type: none; /* リストのスタイルを削除 */
+  padding: 10px 0; /* 上下のパディング */
+  margin: 0; /* マージンを削除 */
+  z-index: 1000; /* 他の要素の上に表示 */
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影の追加 */
+}
+
+.dropdown li {
+  padding: 5px 15px; /* リストアイテムのパディング */
+}
+
+.dropdown li a {
+  color: black; /* テキストの色 */
+  text-decoration: none; /* 下線を削除 */
+}
+
+/* リストアイテムにホバー時のスタイルを追加 */
+.dropdown li:hover {
+  background-color: rgba(240, 233, 218, 0.8); /* 肌色の半透明オーバーレイ */
+}
+
+.dropdown li a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+
+.text{
+  font-size: 20px;
+  text-align: center; /* 中央揃え */
+}
+
+.next-icon {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent; /* 左側の三角形のための透明なボーダー */
+  border-right: 15px solid transparent; /* 右側の三角形のための透明なボーダー */
+  border-top: 15px solid #000; /* 三角形の色 */
+  margin: 20px auto; /* 中央揃えのためのマージン */
+  cursor: pointer; /* ホバー時にカーソルをポインターに */
+  
+  animation: moveUpDown 2.2s infinite; /* アニメーションを適用 */
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0); /* 初期位置 */
+  }
+  50% {
+    transform: translateY(-10px); /* 上に10px移動 */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* AboutMeのスタイル設定 */
+.profile {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+}
+.profile-image {
+  width: 250px;
+  height: 300px;
+  border-radius: 10%;
+  margin-right: 20px;
+}
+.profile-info {
+  flex-grow: 1;
+}
+.profile-info p {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-weight: bold; /* 太字にする */
+  font-size: 20px;
+}
+
+
+/* プロフィールの詳細モーダルのスタイル設定 */
+.profile-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px; /* サイズを大きく */
+  height: 600px;
+  background-color: white; /* 背景色 */
+  border: none; /* 枠線を消す */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* 影を強調 */
+  padding: 16px; /* 内側の余白 */
+  border-radius: 8px; /* 角を丸くする */
+}
+.modal-container {
+  display: flex; /* Flexboxを使用して水平に配置 */
+  justify-content: space-between; /* 左右のエリアをスペースで分ける */
+  align-items: flex-start; /* 上揃えにする */
+  margin: 20px; /* マージンを追加 */
+}
+.modal-left {
+  flex: 1; /* 左側のエリアを1の割合で占める */
+  margin-right: 20px; /* 右側との間にマージンを追加 */
+}
+.modal-right {
+  flex: 1; /* 右側のエリアを1の割合で占める */
+}
+.modal-left h3 {
+  margin: 0; /* タイトルのマージンをリセット */
+}
+.modal-left p {
+  margin-top: 10px; /* 詳細の上にマージンを追加 */
+}
+
+
+ /* worksのスタイル設定 */
+.container {
+  margin: 0 auto; /* 中央揃え */
+  padding: 20px; /* パディング */
+}
+.card-container {
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: space-between; /* カードを左右に配置 */
+  margin-bottom: 20px; /* 下部のマージン */
+}
+.card {
+  margin: 100px; /* カードの外側のマージン */
+  text-align: center; /* テキストを中央揃え */
+  max-width: 470px; /* カードの最大幅を設定 */
+  text-decoration: none; /* 下線を消す */
+  color: black; /* 文字の色を黒にする */
+}
+.card-image {
+  width: 300px; /* 画像の幅を300pxに設定 */
+  height: 300px; /* 画像の高さを300pxに設定 */
+  display: block; /* ブロック要素にする */
+  margin: 0 auto; /* 左右のマージンを自動にして中央揃え */
+}
+
+
+/* worksの#タブのスタイル設定 */
+.tags {
+  margin-top: 10px; /* タグの上に少しマージンを追加 */
+  display: flex; /* タグを横並びにする */
+  justify-content: center; /* タグを中央に揃える */
+  flex-wrap: wrap; /* タグが横に並びきれなくなったら改行する */
+}
+.tag {
+  background-color: #f0f0f0; /* タグの背景色 */
+  border: 1px solid #ccc; /* タグのボーダー */
+  border-radius: 50px; /* タグを円形にする */
+  padding: 5px 10px; /* タグの内側のパディング */
+  margin: 5px 5px; /* タグの左右のマージン */
+  font-size: 14px; /* フォントサイズ */
+  color: #333; /* フォントの色 */
+}
+
+
+/* Contact Meのフォームの設定 */
+.styled-body {
+  display: flex;
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+.styled-form {
+  width: 600px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ddd; /* 下線を追加 */
+  outline: none; /* フォーカス時のアウトラインを消す */
+  transition: border-color 0.3s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.submit-button {
+  background-color: #3a4f65;
   color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100px;
+  font-size: 15px;
 }
-
-.App-link {
-  color: #61dafb;
+.submit-container {
+  text-align: center; /* 中央揃え */
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submit-button:hover {
+  background-color: #85a5c5;
 }
