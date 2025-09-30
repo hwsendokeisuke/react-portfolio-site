@@ -314,3 +314,33 @@ textarea:focus {
 .submit-button:hover {
   background-color: #85a5c5;
 }
+@media (max-width: 600px) {
+  .main {
+    padding: 10px;
+  }
+  .title-text {
+    font-size: 1.5em;
+  }
+  .profile-image {
+    width: 100px;
+    height: auto;
+  }
+  .arch-image {
+    width: 120px;
+    height: auto;
+  }
+  .container {
+    padding: 5px;
+  }
+  .card-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .name-text {
+    font-size: 1.2em;
+  }
+  .next-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
