@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Ribbon } from './components/Ribbon';
 import { Top } from './components/Top';
 import { AboutThisSite } from './components/AboutThisSite';
@@ -11,25 +11,21 @@ import WorkKoreaBlog from './components/works/WorkKoreaBlog'; // WorkKoreaBlog�
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Ribbon />
-            <Top />
-            <AboutThisSite />
-            <AboutMe />
-            <Works />
-            <Skills />
-            <ContactMe />
-          </>
-        } />
-        <Route path="/WorkPortforio" element={<WorkPortforio />} /> {/* WorkPortforioコンポーネントを表示 */}
-        {/* 他の詳細画面用のルートも追加可能 */}
-        <Route path="/WorkKoreaBlog" element={<WorkKoreaBlog />} /> {/* WorkKoreaBlogコンポーネントを表示 */}
-        {/* 他の詳細画面用のルートも追加可能 */}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={
+        <>
+          <Ribbon />
+          <Top />
+          <AboutThisSite />
+          <AboutMe />
+          <Works />
+          <Skills />
+          <ContactMe />
+        </>
+      } />
+      <Route path="/WorkPortforio" element={<WorkPortforio />} />
+      <Route path="/WorkKoreaBlog" element={<WorkKoreaBlog />} />
+    </Routes>
   );
 }
 
