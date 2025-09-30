@@ -31,7 +31,7 @@ export const Works = () => {
           <div className="card-container">
             {worksData.map((work, index) => (
               <div key={index}>
-                <Card 
+                <Card
                   to={work.to}
                   imgSrc={work.imgSrc}
                   altText={work.altText}
